@@ -21,7 +21,10 @@ struct TaskListView: View {
                         TaskCell(taskCellVM: taskCellVM)
                     }
                     if presentAddNewItem {
-                        TaskCell(taskCellVM: TaskCellViewModel(task: Task(title: "", completed: false)))
+                        TaskCell(taskCellVM: TaskCellViewModel(task: Task(title: "", completed: false))) { task in
+                            self.taskListVM.addTask(task: task)
+                            self.presentAddNewItem.toggle()
+                        }
                     }
                 }
                 
@@ -47,10 +50,17 @@ struct ContentView_Previews: PreviewProvider {
 
 struct TaskCell: View {
     @ObservedObject var taskCellVM: TaskCellViewModel
+    var onCommit: (Task)->(Void) = {_ in }
+    
     var body: some View {
         HStack {
             Image(systemName: taskCellVM.task.completed ? "checkmark.circle.fill" : "circle")
-            TextField("Enter the task title", text: $taskCellVM.task.title)
+                .onTapGesture {
+                    self.taskCellVM.task.completed.toggle()
+                }
+            TextField("Enter the task title", text: $taskCellVM.task.title, onCommit: {
+                self.onCommit(taskCellVM.task)
+            })
         }
     }
 }
