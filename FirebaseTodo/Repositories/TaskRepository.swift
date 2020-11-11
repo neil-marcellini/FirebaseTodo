@@ -32,4 +32,14 @@ class TaskRepository: ObservableObject {
             }
         }
     }
+
+    func addTask(_ task: Task) {
+        do {
+//            Surpresses warning that result isn't used.
+            let _ = try db.collection("tasks").addDocument(from: task)
+        } catch {
+            fatalError("Unable to encode task \(error.localizedDescription)")
+        }
+        
+    }
 }
