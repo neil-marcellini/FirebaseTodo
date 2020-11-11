@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3148E185255B6C2F00DC5098 /* TaskCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3148E184255B6C2F00DC5098 /* TaskCellViewModel.swift */; };
+		3148E18D255B6EE900DC5098 /* TaskListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3148E18C255B6EE900DC5098 /* TaskListViewModel.swift */; };
 		31DA962B255B63FD00E46B48 /* FirebaseTodoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DA962A255B63FD00E46B48 /* FirebaseTodoApp.swift */; };
 		31DA962D255B63FD00E46B48 /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DA962C255B63FD00E46B48 /* TaskListView.swift */; };
 		31DA962F255B63FE00E46B48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31DA962E255B63FE00E46B48 /* Assets.xcassets */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3148E184255B6C2F00DC5098 /* TaskCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCellViewModel.swift; sourceTree = "<group>"; };
+		3148E18C255B6EE900DC5098 /* TaskListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewModel.swift; sourceTree = "<group>"; };
 		31DA9627255B63FD00E46B48 /* FirebaseTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirebaseTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31DA962A255B63FD00E46B48 /* FirebaseTodoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTodoApp.swift; sourceTree = "<group>"; };
 		31DA962C255B63FD00E46B48 /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
@@ -74,6 +78,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3148E183255B6C0C00DC5098 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				3148E184255B6C2F00DC5098 /* TaskCellViewModel.swift */,
+				3148E18C255B6EE900DC5098 /* TaskListViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		31DA961E255B63FD00E46B48 = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				31DA962A255B63FD00E46B48 /* FirebaseTodoApp.swift */,
+				3148E183255B6C0C00DC5098 /* ViewModels */,
 				31DA9658255B643900E46B48 /* Model */,
 				31DA9661255B653500E46B48 /* Views */,
 				31DA962E255B63FE00E46B48 /* Assets.xcassets */,
@@ -279,6 +293,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				31DA962D255B63FD00E46B48 /* TaskListView.swift in Sources */,
+				3148E185255B6C2F00DC5098 /* TaskCellViewModel.swift in Sources */,
+				3148E18D255B6EE900DC5098 /* TaskListViewModel.swift in Sources */,
 				31DA965A255B644700E46B48 /* Task.swift in Sources */,
 				31DA962B255B63FD00E46B48 /* FirebaseTodoApp.swift in Sources */,
 			);

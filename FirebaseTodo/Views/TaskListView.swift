@@ -8,15 +8,24 @@
 import SwiftUI
 
 struct TaskListView: View {
+    @ObservedObject var taskListVM = TaskListViewModel()
+    @State var presentAddNewItem = false
+    
+    
     let tasks = testDataTasks
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
-                List(tasks) { task in
-                    TaskCell(task: task)
+                List {
+                    ForEach(taskListVM.taskCellViewModels) { taskCellVM in
+                        TaskCell(taskCellVM: taskCellVM)
+                    }
+                    if presentAddNewItem {
+                        TaskCell(taskCellVM: TaskCellViewModel(task: Task(title: "", completed: false)))
+                    }
                 }
                 
-                Button(action:{}) {
+                Button(action:{ presentAddNewItem.toggle() }) {
                     HStack {
                         Image(systemName: "plus.circle.fill")
                             .font(.title)
@@ -37,11 +46,11 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct TaskCell: View {
-    let task: Task
+    @ObservedObject var taskCellVM: TaskCellViewModel
     var body: some View {
         HStack {
-            Image(systemName: task.completed ? "checkmark.circle.fill" : "circle")
-            Text(task.title)
+            Image(systemName: taskCellVM.task.completed ? "checkmark.circle.fill" : "circle")
+            TextField("Enter the task title", text: $taskCellVM.task.title)
         }
     }
 }
