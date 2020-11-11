@@ -18,7 +18,9 @@ class TaskRepository: ObservableObject {
     }
     
     func loadData() {
-        db.collection("tasks").addSnapshotListener { (querySnapShot, error) in
+        db.collection("tasks")
+            .order(by: "createdTime")
+            .addSnapshotListener { (querySnapShot, error) in
             if let querySnapshot = querySnapShot {
                 self.tasks = querySnapshot.documents.compactMap { document in
                     do {
